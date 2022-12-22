@@ -1,0 +1,131 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: sans-serif;
+}
+body{
+    height:100vh;
+    background: black;
+    color: wheat;
+}
+.container{
+    height:60vh;
+    width:30vw;
+    /* border:2px solid yellow; */
+    position: absolute;
+    top:50vh;
+    left:50vh;
+    transform: translate(-50% , -50%);
+    perspective: 1000px;
+}
+.box{
+    height:250px;
+    width:250px;
+    position:absolute;
+    top:100px;
+    left:100px;
+    /* transform: rotate(-90deg); */
+    transform-style: preserve-3d;
+    /* transform: rotateY(30deg); */
+    animation: animate 5s infinite;
+}
+#hidden{
+    /* color:black; */
+    position:absolute;
+    top:300px;
+    left:700px;
+    color:black;
+}
+@keyframes animate {
+    0%{
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    25%{
+        transform: rotateX(-45deg) rotateY(-45deg);
+    }
+    50%{
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    75%{
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    100%{
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+}
+.card{
+    height:250px;
+    width: 250px;
+    text-align: center;
+    padding:100px 0px;
+    color:white;
+    background:purple;
+    border:2px solid white;
+    font-size:32px;
+    box-sizing: border-box;
+    position:absolute;
+    transition: all 1s;
+}
+#front{
+    transform: translateZ(125px);
+}
+#back{
+    transform: translateZ(-125px);
+}
+#left{
+    right:125px;
+    transform: rotateY(-90deg);
+}
+#right{
+    left:125px;
+    transform: rotateY(90deg);
+}
+#top{
+    bottom:125px;
+    transform: rotateX(90deg);
+}
+#bottom{
+    top:125px;
+    transform: rotateX(-90deg);
+}
+#break{
+    height:50px;
+    width:100px;
+    background:darkcyan;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    top:-100px;
+    left:175px;
+    z-index: 1;
+
+}
+#hide{
+    height:50px;
+    width:100px;
+    background:darkcyan;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    top:-100px;
+    left:175px;
+    z-index: 0;
+}
+#break:focus~ .box #front{
+    transform: translateZ(180px) rotateY(360deg);
+}
+#break:focus~ .box #back{
+    transform: translateZ(-180px) rotateY(360deg);
+}
+#break:focus~ .box #left{
+    right:180px;
+}
+#break:focus~ .box #right{
+    left:180px;
+}
+#break:focus~ .box #top{
+    bottom:180px;
+}
+#break:focus~ .box #bottom{
+    top:180px;
+}
